@@ -1,5 +1,6 @@
 # Team Collab
 
+
 Opgavens formål er at få afprøvet udvikling af en express baseret hjemmeside, via team arbejde.
 
 Konceptet er at klassen opdeles i mindre teams på 3-4 elever, og hvert team skal finde ud af hvordan de vil løse opgaven ved at opstille delmål og fordele dem på en fornuftig måde.
@@ -22,6 +23,7 @@ Opgaven er med vilje ret åben, der er meget få krav som skal opfyldes, samt de
 * Der skal være en kontakt formular med clientside og serverside validering. beskederne der modtages fra formularen indsættes i en database.
 * Der skal være et ensartet design på alle clientside siderne.
 * En gang hver dag, vil en fra teamet holde et kort produktionsmøde med læreren, og giver en kort melding om hvordan projektet skrider frem.
+
 
 Hjemmesidens tema er helt åbent. Det kunne f.eks. være en side i stil med HIFI klub opgaven, eller en simplere version af "the awesome newspage". Måske en fan-side for et band eller en film franchise osv... *det er **ikke** så meget et fancy smart design der lægges vægt på, det er flowet i opgavens løsning og sammenarbejdet.* 
 
