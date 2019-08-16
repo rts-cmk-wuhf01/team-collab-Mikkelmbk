@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 16. 08 2019 kl. 12:27:35
+-- Genereringstid: 16. 08 2019 kl. 13:12:42
 -- Serverversion: 10.1.37-MariaDB
 -- PHP-version: 7.3.1
 
@@ -31,14 +31,14 @@ SET time_zone = "+00:00";
 CREATE TABLE `images` (
   `image_id` int(11) NOT NULL,
   `image_name` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Data dump for tabellen `images`
 --
 
 INSERT INTO `images` (`image_id`, `image_name`) VALUES
-(1, 0);
+(1, '0');
 
 -- --------------------------------------------------------
 
@@ -53,7 +53,7 @@ CREATE TABLE `movies` (
   `movie_year` int(4) NOT NULL,
   `movie_description` varchar(528) NOT NULL,
   `fk_movie_image_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Begrænsninger for dumpede tabeller
