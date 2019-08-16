@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `images` (
   `image_id` int(11) NOT NULL,
-  `image_name` int(128) NOT NULL
+  `image_name` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
