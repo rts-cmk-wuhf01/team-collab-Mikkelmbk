@@ -1,0 +1,28 @@
+{
+  "name": "emil_nanna_mikkel_team5",
+  "version": "1.0.0",
+  "description": "en template med de packages og kode jeg har brug for til at køre express, ejs mm.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mikkelmbk/team-collab-Mikkelmbk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mikkelmbk/team-collab-Mikkelmbk/issues"
+  },
+  "homepage": "https://github.com/Mikkelmbk/team-collab-Mikkelmbk#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "date-and-time": "^0.9.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "mysql2": "^1.6.5"
+  }
+}
