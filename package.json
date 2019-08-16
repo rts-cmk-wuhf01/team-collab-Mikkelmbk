@@ -4,6 +4,7 @@
   "description": "en template med de packages og kode jeg har brug for til at køre express, ejs mm.",
   "main": "app.js",
   "scripts": {
+    "start" : "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
