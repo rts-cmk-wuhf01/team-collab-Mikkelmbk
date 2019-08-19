@@ -38,9 +38,9 @@ module.exports = (app) => {
         // variabler hentes ved submit
         let name = req.body.contactformname;
         let email = req.body.contactformemail;
-        let subject = req.body.contactformsubject;
         let message = req.body.contactformmessage;
-        let date = new Date();
+        let getDate = new Date();
+        let timeStamp = getDate.toISOString();
 
         // håndter valideringen, alle fejl pushes til et array så de er samlet ET sted
         let returnMessageArray = [];
@@ -68,17 +68,14 @@ module.exports = (app) => {
          // HER SKAL JEG LAVE EN TRY AND CATCH.... SE NYESTE VIDEO.
             let sql = await database.execute(`
                 INSERT INTO messages
-                SET
-                message_name = ?, 
-                message_email = ?, 
-                message_subject = ?, 
-                message_text = ?, 
-                message_date = ?`
-                , [name, email, subject, message, date]
+                (message_name, message_email, message_text, message_date)
+                VALUES (?,?,?)`
+                , [name, email, message, timeStamp]
             );
 
+            // NB jeg bruger ikke disse returnmessages til noget, endnu!
             // affected rows er større end nul, hvis en (eller flere) række(r) blev indsat
-            if (result[0].affectedRows > 0) {
+            if (sql[0].affectedRows > 0) {
                 returnMessageArray.push('Tak for din besked, vi vender tilbage hurtigst muligt');
             } else {
                 returnMessageArray.push('Din besked blev ikke modtaget.... ');
