@@ -12,7 +12,7 @@ module.exports = {
          // min phpadmin server har pt ikke et password, indsæt tom string
          password: '',
          port: '3306',
-         database: 'databasenavn'
+         database: 'playhub'
       })
    }
 }
