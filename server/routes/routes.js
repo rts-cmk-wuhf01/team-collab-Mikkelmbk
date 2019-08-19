@@ -6,13 +6,6 @@ module.exports = (app) => {
 
 
 
-    app.get('/', function(req, res) {
-
-        res.render('home', {
-        });
-
-    }); // route slutter
-
 } // module.exports slutter
 
 /* SE NOGLE MERE AVANCEREDE ROUTES HER 

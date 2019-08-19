@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- <link rel="stylesheet" href="CSS/style.css"> -->
+    <%- include('partials/head.ejs') %> 
+    <title>Document</title>
+</head>
+<body>
+    <div class="page-wrapper">
+        
+        <!-- header -->
+        <header class="header">
+            <!-- logo -->
+
+            <!-- top navigation (filter) -->
+            <nav class="filter-nav">
+
+            </nav>
+
+        </header>
+
+
+        <!-- sidebar -->
+        <div class="sidebar-wrapper">
+
+            <!-- sidebar navigation -->
+            <nav class="sidebar-nav">
+
+            </nav>
+
+        </div>
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main_contact-us">
+            <!-- contactform wrapper -->
+            <div class="contactform-wrapper">
+                <section class="contactform-headings-section">
+                    <h2 class="contactform-heading">CONTACT US</h2>
+                    <p class="contactform-subheading">Submit a support ticket by filling in the form below</p>
+                </section>
+
+                <form method="post" class="contactform">
+                    <div class="contactform_input-wrapper">
+                        <label for="contactformname"></label>
+                        <input type="text" name="contactformname" id="contactform_name" class="contactform_name"
+                        placeholder="placeholder email"
+                        value="<% %>"
+                        >
+                    </div>
+                    <div class="contactform_input-wrapper">
+                        <label for="contactformemail"></label>
+                        <input type="text" name="contactformemail" id="contactform_email" class="contactform_email"
+                        placeholder="placeholder email"
+                        value="<% %>"
+                        >
+                    </div>
+                    <div class="contactform_input-wrapper">
+                        <textarea 
+                        id="contactform__message" 
+                        name="contactformmessage" 
+                        class="contactform__message" 
+                        cols="30" 
+                        rows="10" 
+                        placeholder="Placeholder Message"><%= typeof values != 'undefined' ? values.contactformmessage : ''%>
+                        </textarea>
+                    </div>
+                    <button type="submit" form="contactform">SEND</button>
+                </form>
+            </div>
+        </main>
+
+
+    </div>   <!-- page-wrapper ends -->
+
+
+    <%- include('partials/scripts.ejs') %>
+</body>
+</html>
