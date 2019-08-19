@@ -1,13 +1,20 @@
 <div class="wrapper">
 			<main class="main">
 				<article class="main__gallery">
+				<%  if(typeof Placeholder != 'undefined'){
+				 Placeholder.forEach((image, index))=>{ %>
+
+                <div class="imgContainer">
+				<a href="#">
+				<img class="imgContainer__img--style" src="">
+				</a>
+				</div>
+
+				<%} }%>
 
 				</article>
 
+				
+
 			</main>
-
-			<span class="span__to-top">
-				<a class="span__a-to-top fas fa-chevron-circle-up" href="#to-top"></a>
-			</span>
-
 		</div>
