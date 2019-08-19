@@ -1,17 +1,24 @@
 const mysql = require('../config/mysql');
 
-// module exports
 module.exports = (app) => {
-    // herinde laver du dine routes via app
 
 
 
-    app.get('/', function(req, res) {
+
+    app.get('/', async (req, res, next) => {
 
         res.render('home', {
         });
 
-    }); // route slutter
+    });
+
+    app.get('/movies', async (req, res, next) => {
+
+        res.render('movies', {
+
+        });
+
+    });
 
 } // module.exports slutter
 
