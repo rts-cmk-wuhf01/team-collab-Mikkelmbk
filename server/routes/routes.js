@@ -5,6 +5,7 @@ module.exports = (app) => {
 
 
 
+
     app.get('/', async (req, res, next) => {
 
         res.render('home', {
@@ -19,6 +20,7 @@ module.exports = (app) => {
         });
 
     });
+
 
 } // module.exports slutter
 
