@@ -1,16 +1,16 @@
 <div class="wrapper">
 			<main class="main">
 				<article class="main__gallery">
-				<%  if(typeof Placeholder != 'undefined'){
-				 Placeholder.forEach((image, index))=>{ %>
-
+				<% if(typeof movies != 'undefined'){
+				movies.forEach((image, index)=>{ %>
+ 
                 <div class="imgContainer">
 				<a href="#">
-				<img class="imgContainer__img--style" src="">
+				<img class="imgContainer__img--style" src="/assets/images/<%=image.image_name%>">	
 				</a>
 				</div>
 
-				<%} }%>
+				<%}) }%>
 
 				</article>
 

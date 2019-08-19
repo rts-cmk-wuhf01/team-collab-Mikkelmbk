@@ -17,27 +17,13 @@ module.exports = (app) => {
         let movies = await getAllMovies();
 
         res.render('movies', {
-            "movies":movies
+            "movies":movies,
 
 
         });
 
     });
 
-
-
-
-async function getAllMovies(){
-    let db = await mysql.connect();
-    let [movies] = await db.exports(`
-    SELECT *
-    FROM movies
-    `)
-
-
-    db.end();
-    return movies
-}
 
     app.get('/contact', async (req, res, next) => {
 
@@ -107,6 +93,18 @@ async function getAllMovies(){
         } // else slutter
 
     });
+
+
+    async function getAllMovies(){
+        let db = await mysql.connect();
+        let [movies] = await db.execute(`
+        SELECT *
+        FROM movies
+        INNER JOIN images ON fk_movie_image_id = image_id
+        `)
+        db.end();
+        return movies
+    }
 
 
 

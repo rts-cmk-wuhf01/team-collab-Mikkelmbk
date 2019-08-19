@@ -19,7 +19,8 @@
 }
 @media(min-width: 460px){
 	.main__gallery{
-		grid-template-columns:1fr 1fr 1fr
+		grid-template-columns:1fr 1fr 1fr;
+		margin:15px 0;
 	}
 }
 @media(min-width: 610px){
@@ -34,6 +35,7 @@
 }
 @media(min-width: 1000px){
 	.main__gallery{
-		grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr
+		grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr;	
+		
 	}
 }
