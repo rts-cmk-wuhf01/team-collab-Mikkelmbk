@@ -14,12 +14,29 @@ module.exports = (app) => {
     });
 
     app.get('/movies', async (req, res, next) => {
+        let movies = await getAllMovies();
 
         res.render('movies', {
+            "movies":movies
+
 
         });
 
     });
+
+
+
+async function getAllMovies(){
+    let db = await mysql.connect();
+    let [movies] = await db.exports(`
+    SELECT *
+    FROM movies
+    `)
+
+
+    db.end();
+    return movies
+}
 
 
 } // module.exports slutter
