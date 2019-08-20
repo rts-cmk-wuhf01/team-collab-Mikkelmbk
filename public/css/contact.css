@@ -1,0 +1,76 @@
+/* variabler */
+
+:root {
+    /* get headerHeight + gridgap from global design */
+    --headerHeigth: 70px;
+    /* NB if any gridgap is added or changed, you must revise adjustedGridGap */
+    --adjustedGridGap: 10px;
+    --adjustedPageHeight: calc(var(--headerHeigth) + (var(--adjustedGridGap)));
+  }
+
+  
+/* content grid layout */
+
+.main_contact-us {
+    display: grid;
+    grid-template-columns: 1fr 500px 1fr;
+    grid-template-areas: "left-margin formular right-margin";
+    height: calc(100vh - (var(--adjustedPageHeight)));
+    margin: 0;
+}
+
+.contactform-wrapper {
+    grid-area: formular;
+}
+
+/* form alignment */
+
+.contactform-wrapper, .contactform-headings-section, .contactform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactform, .contactform_submit-button, .contactform_input-wrapper {
+    width: 100%;
+}
+
+
+.contactform_input-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.contactform_input-wrapper input, .contactform_input-wrapper textarea {
+    width: 90%;
+    padding-left: 10px;
+    margin-bottom: 1rem;
+}
+
+.contactform_input-wrapper input, .contactform_submit-button  {
+    height: 30px;
+}
+
+.contactform_submit-button {
+    width: 60%;
+}
+
+/* fonts */
+
+.contactform-headings-section {
+    color: white;
+}
+
+.contactform-heading {
+    margin: 0 auto;
+}
+
+.contactform_submit-button {
+    width: 50%;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: cornflowerblue;
+}
