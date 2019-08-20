@@ -16,8 +16,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
 	sliderItemElements.forEach((sliderItemElement)=>{
-		sliderItemElement.style.backgroundColor = "green";
-		sliderItemElement.style.border = "1px solid yellow";	
+		// sliderItemElement.style.backgroundColor = "green";
+		// sliderItemElement.style.border = "1px solid yellow";
+		
+		
 
 		sliderItemElement.style.width = variableSliderWidth/3+`px`;
 	})
