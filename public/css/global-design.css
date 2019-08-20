@@ -50,11 +50,14 @@
     font-size: 14px;
     z-index: 1;
     color: white;
+    width: 25%;
+    
 }
 
 .searchbar hr{
     margin-bottom: 1px;
-    width: 100%;
+    width: 25%;
+    position: fixed;
 }
 
 
