@@ -10,15 +10,17 @@
 
 .header {
     /* height: 15%; */
-    height: 115px;
+    height: 90px;
     background-color: #111;
+    position: sticky;
+    z-index: 1;
+    width: 100%;
 }
 
 .searchbar {
-    position: fixed;
-    z-index: 1;
-    top: 5%;
-    left: 10%;
+    width: 20%;
+    padding-top: 1.6%;
+    margin-left: 12%;
 }
 
 .searchbar input{
@@ -28,13 +30,11 @@
     font-size: 14px;
     z-index: 1;
     color: white;
-    padding-right: 720px;
 }
 
 .searchbar hr{
     margin-bottom: 1px;
     width: 100%;
-    left: 5%;
 }
 
 
