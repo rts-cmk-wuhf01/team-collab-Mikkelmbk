@@ -1,17 +1,16 @@
 .slider-container{
-	margin: 0 0 15px 125px;
-	padding: 0px 10px;
+	margin: 0 10px 15px 10px;
+	/* padding: 0px 10px; */
 	height:265px;
 	background-color:grey;
 	/* display:grid; */
 	/* grid-template-columns: 1fr 1fr 1fr; */
 	list-style-type:none;
-	width:1374px;
+	/* width:1374px; */
 	overflow:hidden;
 }
 
 .slider-size-regulator{
-	/* width:4000px; */
 	height:100%;
 	overflow:hidden;
 	display:flex;

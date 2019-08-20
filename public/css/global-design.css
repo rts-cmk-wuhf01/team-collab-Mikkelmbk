@@ -54,7 +54,7 @@
 
 .searchbar hr{
     margin-bottom: 1px;
-    width: 100%;
+    width: 80%;
 }
 
 
@@ -112,7 +112,7 @@
 }
 
 .main {
-    margin-left: 125px; /* Same as the width of the sidenav */
+    
     padding: 0px 10px;
 }
 
