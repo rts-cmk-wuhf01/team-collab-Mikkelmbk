@@ -1,10 +1,29 @@
-/*----------------- page wrapper -----------------*/
+/*----------------- grid layout -----------------*/
 
 .page-wrapper {
     /* width: 100vw; */
     background-color: rgb(41, 41, 41);
     font-family: 'Open Sans', sans-serif;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 115px 1fr;
+    grid-template-areas: 
+        "header header"
+        "sidebar maincontent"
 }
+
+.header {
+    grid-area: header;
+}
+
+.sidebar-wrapper {
+    grid-area: sidebar;
+}
+
+.content-wrapper {
+    grid-area: maincontent;
+}
+
 
 /*---------- top navigation (filter)--------------*/
 
@@ -15,11 +34,11 @@
     position: sticky;
     top:0;
     z-index: 5;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .searchbar {
-    width: 30%;
+    /* width: 30%; */
     padding-top: 1%;
     margin-left: 10%;
 }
@@ -44,8 +63,7 @@
 /*------------- sidebar --------------*/
 
 .sidebar-wrapper {
-    /* width: 10%; */
-    width: 115px;
+
     text-align: center;
 }
 
