@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 19. 08 2019 kl. 13:18:10
+-- Genereringstid: 20. 08 2019 kl. 09:26:51
 -- Serverversion: 10.1.30-MariaDB
 -- PHP-version: 7.2.1
 
@@ -64,6 +64,21 @@ INSERT INTO `images` (`image_id`, `image_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur-dump for tabellen `messages`
+--
+
+CREATE TABLE `messages` (
+  `message_id` int(11) NOT NULL,
+  `message_name` varchar(100) NOT NULL,
+  `message_email` varchar(100) NOT NULL,
+  `message_subject` varchar(100) NOT NULL,
+  `message_text` varchar(1000) NOT NULL,
+  `message_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur-dump for tabellen `movies`
 --
 
@@ -117,6 +132,12 @@ ALTER TABLE `images`
   ADD UNIQUE KEY `image_id_2` (`image_id`);
 
 --
+-- Indeks for tabel `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`message_id`);
+
+--
 -- Indeks for tabel `movies`
 --
 ALTER TABLE `movies`
@@ -132,6 +153,12 @@ ALTER TABLE `movies`
 --
 ALTER TABLE `images`
   MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `movies`

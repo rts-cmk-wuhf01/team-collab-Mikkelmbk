@@ -71,7 +71,7 @@ module.exports = (app) => {
             let sql = await database.execute(`
                 INSERT INTO messages
                 (message_name, message_email, message_text, message_date)
-                VALUES (?,?,?)`
+                VALUES (?,?,?,?)`
                 , [name, email, message, timeStamp]
             );
 
@@ -85,7 +85,7 @@ module.exports = (app) => {
 
             database.end();
 
-            res.render('contact', {
+            res.render('contact-us', {
                 "returnMessageArray": returnMessageArray.join(', '),
             });
 
