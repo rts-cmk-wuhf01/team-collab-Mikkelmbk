@@ -7,8 +7,10 @@ module.exports = (app) => {
 
 
     app.get('/', async (req, res, next) => {
+        let movies = await getAllMovies();
 
         res.render('home', {
+            "movies":movies,
         });
 
     });
