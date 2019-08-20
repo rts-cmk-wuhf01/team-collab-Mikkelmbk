@@ -8,9 +8,11 @@ module.exports = (app) => {
 
     app.get('/', async (req, res, next) => {
         let movies = await getAllMovies();
+        let recent_movies = await getRecentlyAddedMovies();
 
         res.render('home', {
             "movies":movies,
+            "recentmovies":recent_movies
         });
 
     });
@@ -25,6 +27,8 @@ module.exports = (app) => {
         });
 
     });
+
+
 
 
     app.get('/contact', async (req, res, next) => {
@@ -103,6 +107,19 @@ module.exports = (app) => {
         `)
         db.end();
         return movies
+    }
+
+
+    async function getRecentlyAddedMovies(){
+        let db = await mysql.connect();
+        let [recent_movies] = await db.execute(`
+        SELECT movie_title, movie_description, movie_id, image_name
+        FROM movies
+        INNER JOIN images ON fk_movie_image_id = image_id
+        LIMIT 9
+        `);
+        db.end();
+        return recent_movies
     }
 
 
