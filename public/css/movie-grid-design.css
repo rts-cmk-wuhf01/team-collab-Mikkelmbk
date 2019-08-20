@@ -20,7 +20,7 @@
 @media(min-width: 460px){
 	.main__gallery{
 		grid-template-columns:1fr 1fr 1fr;
-		margin:15px 0;
+		padding:15px 0;
 	}
 }
 @media(min-width: 610px){
