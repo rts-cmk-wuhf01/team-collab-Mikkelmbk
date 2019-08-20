@@ -1,6 +1,24 @@
 .slider-container{
 	margin: 0 0 15px 125px;
 	padding: 0px 10px;
-	height:100px;
+	height:265px;
 	background-color:grey;
+	/* display:grid; */
+	/* grid-template-columns: 1fr 1fr 1fr; */
+	list-style-type:none;
+	width:1374px;
+	overflow:hidden;
+}
+
+.slider-size-regulator{
+	/* width:4000px; */
+	height:100%;
+	overflow:hidden;
+	display:flex;
+	
+}
+
+.slider-item{
+	height:100%;
+	display:inline-block;
 }
