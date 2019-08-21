@@ -1,6 +1,5 @@
+var sliderInterval = "";
 document.addEventListener('DOMContentLoaded', () => {
-
-
 
 	let contentWrapperElement = document.querySelector('.content-wrapper');
 	let sliderContainerElement = document.querySelector('.slider-container');
@@ -13,21 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 	sliderItemElements.forEach((sliderItemElement) => {
-
 		sliderItemElement.style.width = variableSliderWidth / 3 + `px`; // dividing variablesliderwidth by 3 to display 3 images on the visual slider
 	})
 
 	sliderSizeRegulatorElement.style.width = ((variableSliderWidth / 3) * sliderItemElements.length) + `px`; // finds the width of a single slider item and times it by the amount of slider items in total to give the hiden slider-item container it's width.
 
 	slideImagesByInterval();
+	
+	sliderContainerElement.addEventListener('mouseenter',()=>{
+		clearInterval(sliderInterval);
+	})
 
+	sliderContainerElement.addEventListener('mouseout',()=>{
+		slideImagesByInterval();
+	})
 
-
-
-	function slideImagesByInterval() {
-
-		let sliderMovedDistance = variableSliderWidth / 3;
-
+	
 		sliderSizeRegulatorElement.addEventListener('transitionend', () => {
 			sliderSizeRegulatorElement.style.transition = "unset";
 			let firstChild = sliderSizeRegulatorElement.removeChild(sliderSizeRegulatorElement.childNodes[0]);
@@ -35,13 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
 			sliderSizeRegulatorElement.style.marginLeft = 0;
 
 		})
-		setInterval(() => {
+
+	function slideImagesByInterval() {
+
+		let sliderMovedDistance = variableSliderWidth / 3;
+
+		sliderInterval = setInterval(() => {
 			sliderSizeRegulatorElement.style.transition = "all 0.3s";
 			sliderSizeRegulatorElement.style.marginLeft = -sliderMovedDistance + 'px';
 
 		}, 2500)
-
-
 
 	}
 

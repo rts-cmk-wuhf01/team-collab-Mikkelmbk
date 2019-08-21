@@ -4,7 +4,15 @@
 				<% if(typeof movies != 'undefined'){
 				movies.forEach((image, index)=>{ %>
  
-                <div class="imgContainer">
+				<div class="imgContainer">
+				<div class="movie-overlay">
+				<span class="movie-name">Name</span>
+
+				<div class="movie-rating-year-container">
+				
+				</div>
+				
+				</div>
 				<a href="#">
 				<img class="imgContainer__img--style" src="/assets/images/<%=image.image_name%>">	
 				</a>

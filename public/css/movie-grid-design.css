@@ -5,6 +5,26 @@
 }
 .imgContainer{
 	overflow:hidden;
+	position:relative;
+	height:100%;
+}
+
+.movie-overlay{
+	display:grid;
+	grid-template-rows:20% 1fr 15%;
+	opacity:0;
+	position:absolute;
+	height:100%;
+	width:100%;
+	background-color:#000000bb;
+}
+
+.movie-name{
+	opacity:1;
+	z-index:1000;
+	text-align:center;
+	align-self:center;
+	color:white;
 }
 .imgContainer__img--style{
 	width:100%;
