@@ -12,17 +12,31 @@
             <div class="contactform_input-wrapper">
                 <label for="contactformname"></label>
                 <input type="text" name="contactformname" id="contactform_name" class="contactform_name"
-                placeholder="placeholder name"
+                placeholder="name"
                 value="<% %>"
                 >
             </div>
             <div class="contactform_input-wrapper">
                 <label for="contactformemail"></label>
                 <input type="text" name="contactformemail" id="contactform_email" class="contactform_email"
-                placeholder="placeholder email"
+                placeholder="email"
                 value="<% %>"
                 >
             </div>
+
+
+            <div class="select-section">
+                <select name="contactformsubject" id="select-box" class="select-box">
+                    <!-- her skal jeg lave dynamisk indhold i options -->
+                    <% if(subjects != 'undefined') { %>
+                        <% subjects.forEach(subject => { %>
+                        <option value="<%=subject_id%>"><%=subject_name%></option>
+                        <%})%>
+                    <%}%>
+                </select>
+
+            </div>
+
             <div class="contactform_input-wrapper">
                 <textarea 
                 id="contactform__message" 
@@ -30,7 +44,7 @@
                 class="contactform__message" 
                 cols="30" 
                 rows="10" 
-                placeholder="Placeholder Message">
+                placeholder="Message">
                 </textarea>
             </div>
             <button class="contactform_submit-button" type="submit">SEND</button>
