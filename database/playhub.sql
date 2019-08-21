@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 21. 08 2019 kl. 12:34:03
+-- Genereringstid: 21. 08 2019 kl. 13:55:27
 -- Serverversion: 10.1.30-MariaDB
 -- PHP-version: 7.2.1
 
@@ -70,6 +70,25 @@ INSERT INTO `images` (`image_id`, `image_name`, `fk_image_movie_id`, `fk_type_id
 (29, 'featuredimg6.jpg', 28, 2),
 (30, 'featuredimg7.jpg', 29, 2),
 (31, 'featuredimg8.jpg', 30, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `messagecategories`
+--
+
+CREATE TABLE `messagecategories` (
+  `messagecategory_id` int(11) NOT NULL,
+  `messagecategory_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Data dump for tabellen `messagecategories`
+--
+
+INSERT INTO `messagecategories` (`messagecategory_id`, `messagecategory_name`) VALUES
+(1, 'General'),
+(2, 'Support');
 
 -- --------------------------------------------------------
 
@@ -157,6 +176,25 @@ INSERT INTO `movies` (`movie_id`, `movie_title`, `movie_rating`, `movie_year`, `
 (29, 'The Boys Featured', 'Tal', 1900, 'Beskrivelse'),
 (30, 'Avengers Endgame Featured', 'Tal', 1900, 'Beskrivelse');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur-dump for tabellen `types`
+--
+
+CREATE TABLE `types` (
+  `type_id` int(11) NOT NULL,
+  `type_name` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Data dump for tabellen `types`
+--
+
+INSERT INTO `types` (`type_id`, `type_name`) VALUES
+(1, 'poster'),
+(2, 'featured');
+
 --
 -- Begrænsninger for dumpede tabeller
 --
@@ -168,6 +206,12 @@ ALTER TABLE `images`
   ADD PRIMARY KEY (`image_id`),
   ADD UNIQUE KEY `image_id` (`image_id`),
   ADD UNIQUE KEY `image_id_2` (`image_id`);
+
+--
+-- Indeks for tabel `messagecategories`
+--
+ALTER TABLE `messagecategories`
+  ADD PRIMARY KEY (`messagecategory_id`);
 
 --
 -- Indeks for tabel `messages`
@@ -183,6 +227,12 @@ ALTER TABLE `movies`
   ADD UNIQUE KEY `movie_id` (`movie_id`);
 
 --
+-- Indeks for tabel `types`
+--
+ALTER TABLE `types`
+  ADD PRIMARY KEY (`type_id`);
+
+--
 -- Brug ikke AUTO_INCREMENT for slettede tabeller
 --
 
@@ -191,6 +241,12 @@ ALTER TABLE `movies`
 --
 ALTER TABLE `images`
   MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `messagecategories`
+--
+ALTER TABLE `messagecategories`
+  MODIFY `messagecategory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `messages`
@@ -203,6 +259,12 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `movies`
   MODIFY `movie_id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- Tilføj AUTO_INCREMENT i tabel `types`
+--
+ALTER TABLE `types`
+  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
