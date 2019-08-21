@@ -1,6 +1,7 @@
 
 
   .dropdown {
+	margin-left: 150px;
 	position: absolute;
 	left: 0%;
   }
@@ -12,7 +13,7 @@
   
   .dropdown-3 {
 	position: absolute;
-	left: 27%;
+	left: 34.9%;
   }
 
   a {
@@ -42,11 +43,9 @@
   }
   
   .dropdown dt a {
-	background-color: rgb(24, 24, 24);
+	background-color: rgb(50, 50, 50);
 	display: block;
 	padding: 8px 20px 0px 8px;
-	min-height: 25px;
-	line-height: 24px;
 	overflow: hidden;
 	border: 0;
 	width: 225px;
@@ -56,11 +55,10 @@
   .multiSel span {
 	cursor: pointer;
 	display: inline-block;
-	padding: 0 3px 2px 0;
   }
   
   .dropdown-1 dd ul, .dropdown-2 dd ul{
-	background-color: rgb(24, 24, 24);;
+	background-color: rgb(50, 50, 50);
 	border: 0;
 	color: #fff;
 	display: none;
@@ -68,7 +66,7 @@
 	padding: 5px 5px 2px 5px;
 	position: absolute;
 	top: 3.5px;
-	width: 242px;
+	width: 243px;
 	height: 360px;
 	overflow: auto;
   }
@@ -82,7 +80,7 @@
   }
   
   .dropdown dd ul li a {
-	padding: 5px;
+	padding: 0px;
 	display: block;
   }
   
@@ -94,13 +92,13 @@
 	background-color: #6BBE92;
 	width: 100px;
 	border: 0;
-	padding: 15px;
+	padding: 11px;
 	text-align: center;
 	color: #fff;
 	font-weight: bold;
 	cursor: pointer;
 	position: absolute;
-	left: 40.5%;
+	left: 43%;
 	margin-top: 16px;
   }
 
@@ -111,22 +109,31 @@
   }
 
   .list-unstyled { 
-    height: 38px;
-	background-color: rgb(24, 24, 24);;
+    height: 29px;
+	background-color: rgb(50, 50, 50);
 	display: block;
 	padding: 8px 20px 0px 0px;
 	position: absolute;
-	width: 232px;
+	width: 130px;
+	color:white;
 }
 
 .init { 
     margin-bottom: 2px;
 }
 
-.list-unstyled li { padding: 4px 0px; z-index: 2; padding-left: 10px; padding-bottom: 6px;}
-.list-unstyled li:not(.init) { float: left; width: 242px; display: none; background: rgb(24, 24, 24);  }
+.list-unstyled li { padding: 0px 0px; z-index: 2; padding-left: 10px; padding-bottom: 6px;}
+.list-unstyled li:not(.init) { float: left; width: 140px; display: none; background: rgb(50, 50, 50);}
 .list-unstyled li.init { cursor: pointer; font-size: 12px; }
 .list-unstyled li:hover:not(.init) { cursor: pointer; background-color: rgb(39, 39, 39);;}
+.list-unstyled .pushdown { margin-top: 6.5px;}
 
 
 a#submit { z-index: 1; }
+
+
+.searchbar {
+    /* width: 30%; */
+    /* padding-top: 1%; */
+    margin-left: 52.5%;
+}
