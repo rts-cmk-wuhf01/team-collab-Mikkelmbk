@@ -103,7 +103,8 @@ module.exports = (app) => {
         let [movies] = await db.execute(`
         SELECT *
         FROM movies
-        INNER JOIN images ON fk_movie_image_id = image_id
+        INNER JOIN images ON fk_image_movie_id = movie_id
+        WHERE fk_type_id = 1
         `)
         db.end();
         return movies
@@ -115,8 +116,8 @@ module.exports = (app) => {
         let [recent_movies] = await db.execute(`
         SELECT movie_title, movie_description, movie_id, image_name
         FROM movies
-        INNER JOIN images ON fk_movie_image_id = image_id
-        LIMIT 9
+        INNER JOIN images ON fk_image_movie_id = movie_id
+        WHERE fk_type_id = 2
         `);
         db.end();
         return recent_movies
