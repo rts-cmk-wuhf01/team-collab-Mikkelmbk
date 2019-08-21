@@ -33,19 +33,8 @@
 
         <div class="content-wrapper">
         <%if(typeof recentmovies != 'undefined'){%>
-            
             <div class="slider-container">
-
-                <div class="slider-size-regulator">
-              <%recentmovies.forEach((recentmovie)=>{ %>
-
-                    <div class="slider-item" style="background-image:url('/assets/images/<%=recentmovie.image_name%>')"></div>
-                    
-                   
-            <%}) } %>
-                   
-                
-                </div>
+                <div class="slider-size-regulator"><%recentmovies.forEach((recentmovie)=>{ %><div class="slider-item" style="background-image:url('/assets/images/<%=recentmovie.image_name%>')"></div><%}) } %></div>
             </div>
 
             
