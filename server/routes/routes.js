@@ -33,8 +33,18 @@ module.exports = (app) => {
 
     app.get('/contact', async (req, res, next) => {
 
-        res.render('contact-us', {
+        // let db = await mysql.connect();
+        
+        // let [messagesubjects] = await db.execute(`
+        //     SELECT *
+        //     FROM subjects
+        // `)
 
+        // db.end();
+
+
+        res.render('contact-us', {
+            "subjects" : ["messagesubjects", "nr2"],
         });
 
     });
@@ -44,6 +54,7 @@ module.exports = (app) => {
         // variabler hentes ved submit
         let name = req.body.contactformname;
         let email = req.body.contactformemail;
+        let subject = req.body.contactformsubject;
         let message = req.body.contactformmessage;
         let getDate = new Date();
         let timeStamp = getDate.toISOString();
@@ -74,9 +85,9 @@ module.exports = (app) => {
          // HER SKAL JEG LAVE EN TRY AND CATCH.... SE NYESTE VIDEO.
             let sql = await database.execute(`
                 INSERT INTO messages
-                (message_name, message_email, message_text, message_date)
+                (message_name, message_email, message_subject, message_text, message_date)
                 VALUES (?,?,?,?)`
-                , [name, email, message, timeStamp]
+                , [name, email, subject, message, timeStamp]
             );
 
             // NB jeg bruger ikke disse returnmessages til noget, endnu!
