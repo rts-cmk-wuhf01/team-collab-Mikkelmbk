@@ -19,7 +19,7 @@
     margin: 0;
 }
 
-.contactform-wrapper {
+.contactform-wrapper, .contactform_submit-message {
     grid-area: formular;
 }
 
@@ -56,9 +56,14 @@
     width: 60%;
 }
 
+.contactform_submit-message {
+    margin: auto;
+    text-align: center;
+}
+
 /* fonts */
 
-.contactform-headings-section {
+.contactform-headings-section, .contactform_submit-message {
     color: white;
 }
 

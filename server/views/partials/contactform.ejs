@@ -1,6 +1,10 @@
 
 <!-- MAIN CONTENT -->
 <main class="main_contact-us">
+
+    <% if(returnMessageArray != 'undefined') { %> 
+        <h2 class="contactform_submit-message"><%=returnMessageArray%></h2>
+    <%} else {%>
     <!-- contactform wrapper -->
     <div class="contactform-wrapper">
         <section class="contactform-headings-section">
@@ -25,16 +29,19 @@
             </div>
 
 
+            
+
             <div class="select-section">
                 <select name="contactformsubject" id="select-box" class="select-box">
                     <!-- her skal jeg lave dynamisk indhold i options -->
-                    <% if(subjects != 'undefined') { %>
-                        <% subjects.forEach(subject => { %>
-                        <option value="<%=subject_id%>"><%=subject_name%></option>
+                    <% if(messagesubjects != 'undefined') { %>
+                        <% messagesubjects.forEach(subject => { %>
+                        <option
+                        value="<%=subject.messagecategory_id%>"
+                        ><%=subject.messagecategory_name%></option>
                         <%})%>
                     <%}%>
                 </select>
-
             </div>
 
             <div class="contactform_input-wrapper">
@@ -47,7 +54,9 @@
                 placeholder="Message">
                 </textarea>
             </div>
+            
             <button class="contactform_submit-button" type="submit">SEND</button>
         </form>
     </div>
+    <% } %>
 </main>
