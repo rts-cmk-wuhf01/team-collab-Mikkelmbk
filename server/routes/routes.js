@@ -33,18 +33,14 @@ module.exports = (app) => {
 
     app.get('/contact', async (req, res, next) => {
 
-        // let db = await mysql.connect();
+        let db = await mysql.connect();
+        let messagecategories = await getMessageSubjects();
         
-        // let [messagesubjects] = await db.execute(`
-        //     SELECT *
-        //     FROM subjects
-        // `)
-
-        // db.end();
-
+        db.end();
 
         res.render('contact-us', {
-            "subjects" : ["messagesubjects", "nr2"],
+            "returnMessageArray" : 'undefined',
+            "messagesubjects" : messagecategories
         });
 
     });
@@ -54,12 +50,14 @@ module.exports = (app) => {
         // variabler hentes ved submit
         let name = req.body.contactformname;
         let email = req.body.contactformemail;
-        let subject = req.body.contactformsubject;
+        let subjectID = req.body.contactformsubject;
         let message = req.body.contactformmessage;
         let getDate = new Date();
         let timeStamp = getDate.toISOString();
+        
+        // res.send(req.body);
 
-        // håndter valideringen, alle fejl pushes til et array så de er samlet ET sted
+          // håndter valideringen, alle fejl pushes til et array så de er samlet ET sted
         let returnMessageArray = [];
 
         if(name == undefined || name == '') {
@@ -81,13 +79,14 @@ module.exports = (app) => {
         } else {
 
             let database = await mysql.connect();
+            let messagecategories = await getMessageSubjects();
          
          // HER SKAL JEG LAVE EN TRY AND CATCH.... SE NYESTE VIDEO.
             let sql = await database.execute(`
                 INSERT INTO messages
-                (message_name, message_email, message_subject, message_text, message_date)
-                VALUES (?,?,?,?)`
-                , [name, email, subject, message, timeStamp]
+                (message_name, message_email, fk_messagecategory_id, message_text, message_date)
+                VALUES (?,?,?,?,?)`
+                , [name, email, subjectID, message, timeStamp]
             );
 
             // NB jeg bruger ikke disse returnmessages til noget, endnu!
@@ -102,11 +101,22 @@ module.exports = (app) => {
 
             res.render('contact-us', {
                 "returnMessageArray": returnMessageArray.join(', '),
+                "messagesubjects" : messagecategories
             });
 
         } // else slutter
 
     });
+
+    async function getMessageSubjects(){
+        let db = await mysql.connect();
+        let [messagecategories] = await db.execute(`
+            SELECT *
+            FROM messagecategories
+        `)
+        db.end();
+        return messagecategories;
+    }
 
 
     async function getAllMovies(){
