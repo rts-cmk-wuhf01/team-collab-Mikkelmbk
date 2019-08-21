@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 21. 08 2019 kl. 09:10:49
+-- Genereringstid: 21. 08 2019 kl. 12:34:03
 -- Serverversion: 10.1.30-MariaDB
 -- PHP-version: 7.2.1
 
@@ -79,19 +79,33 @@ INSERT INTO `images` (`image_id`, `image_name`, `fk_image_movie_id`, `fk_type_id
 
 CREATE TABLE `messages` (
   `message_id` int(11) NOT NULL,
-  `message_name` varchar(100) NOT NULL,
-  `message_email` varchar(100) NOT NULL,
-  `message_subject` varchar(100) NOT NULL,
-  `message_text` varchar(1000) NOT NULL,
+  `message_name` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `message_email` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `fk_messagecategory_id` int(11) NOT NULL,
+  `message_text` varchar(1000) CHARACTER SET latin1 NOT NULL,
   `message_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Data dump for tabellen `messages`
 --
 
-INSERT INTO `messages` (`message_id`, `message_name`, `message_email`, `message_subject`, `message_text`, `message_date`) VALUES
-(4, 'Mikkel Back Koll', 'Mikkelmbk@live.dk', '', '        gsfgsdfs       ', '2019-08-20 11:00:33');
+INSERT INTO `messages` (`message_id`, `message_name`, `message_email`, `fk_messagecategory_id`, `message_text`, `message_date`) VALUES
+(4, 'Mikkel Back Koll', 'Mikkelmbk@live.dk', 1, '        gsfgsdfs       ', '2019-08-20 11:00:33'),
+(5, 'Nanna K Jensen', 'nannakari@gmail.com', 1, '                tjuætuiæ', '2019-08-21 08:12:07'),
+(6, 'Nanna K Jensen', 'nannakari@gmail.com', 1, '                tjuætuiæ', '2019-08-21 08:17:10'),
+(7, 'Nanna K Jensen', 'nannakari@gmail.com', 1, '                dgmsf,', '2019-08-21 08:17:18'),
+(8, 'Nanna K Jensen', 'nannakari@gmail.com', 1, '                dgmsf,', '2019-08-21 08:19:22'),
+(9, 'Nanna K Jensen', 'nannakari@gmail.com', 1, '                dgmsf,', '2019-08-21 08:20:34'),
+(10, 'Nanna K Jensen', 'nannakari@gmail.com', 2, '                dtk,yru.lryiæ', '2019-08-21 08:26:10'),
+(11, 'Nanna K Jensen', 'nannakari@gmail.com', 2, '                dtk,yru.lryiæ', '2019-08-21 08:27:11'),
+(12, 'Nanna K Jensen', 'nannakari@gmail.com', 2, '                dtk,yru.lryiæ', '2019-08-21 08:27:35'),
+(13, 'Nanna K Jensen', 'nannakari@gmail.com', 2, '                dtk,yru.lryiæ', '2019-08-21 08:27:53'),
+(14, 'Nanna K Jensen', 'nannakari@gmail.com', 2, '                dtk,yru.lryiæ', '2019-08-21 08:28:06'),
+(15, 'Nanna K Jensen', 'nannakari@gmail.com', 2, '                dtk,yru.lryiæ', '2019-08-21 08:28:09'),
+(16, 'Nanna K Jensen', 'nannakari@gmail.com', 2, '                dtk,yru.lryiæ', '2019-08-21 08:28:39'),
+(17, 'Nanna K Jensen', 'nannakari@gmail.com', 2, '                dgh,yri.ætuo', '2019-08-21 08:28:55'),
+(18, 'Nanna K Jensen', 'nannakari@gmail.com', 2, '                d.lfhi-tuo', '2019-08-21 08:29:05');
 
 -- --------------------------------------------------------
 
@@ -143,25 +157,6 @@ INSERT INTO `movies` (`movie_id`, `movie_title`, `movie_rating`, `movie_year`, `
 (29, 'The Boys Featured', 'Tal', 1900, 'Beskrivelse'),
 (30, 'Avengers Endgame Featured', 'Tal', 1900, 'Beskrivelse');
 
--- --------------------------------------------------------
-
---
--- Struktur-dump for tabellen `types`
---
-
-CREATE TABLE `types` (
-  `type_id` int(11) NOT NULL,
-  `type_name` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Data dump for tabellen `types`
---
-
-INSERT INTO `types` (`type_id`, `type_name`) VALUES
-(1, 'poster'),
-(2, 'featured');
-
 --
 -- Begrænsninger for dumpede tabeller
 --
@@ -188,12 +183,6 @@ ALTER TABLE `movies`
   ADD UNIQUE KEY `movie_id` (`movie_id`);
 
 --
--- Indeks for tabel `types`
---
-ALTER TABLE `types`
-  ADD PRIMARY KEY (`type_id`);
-
---
 -- Brug ikke AUTO_INCREMENT for slettede tabeller
 --
 
@@ -207,19 +196,13 @@ ALTER TABLE `images`
 -- Tilføj AUTO_INCREMENT i tabel `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Tilføj AUTO_INCREMENT i tabel `movies`
 --
 ALTER TABLE `movies`
   MODIFY `movie_id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- Tilføj AUTO_INCREMENT i tabel `types`
---
-ALTER TABLE `types`
-  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
