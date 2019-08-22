@@ -31,9 +31,17 @@ module.exports = (app) => {
     app.get('/movies', async (req, res, next) => {
         let movies = await getAllMovies();
 
+        let ratings;
+
+        await filescraper.loaddata().then((getTSVData)=>{
+            // logger til terminalen:
+            console.log(getTSVData);
+            ratings = getTSVData;
+        });
+
         res.render('movies', {
             "movies":movies,
-
+            "ratings" : ratings
 
         });
 
