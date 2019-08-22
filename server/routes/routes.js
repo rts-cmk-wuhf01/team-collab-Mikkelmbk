@@ -18,36 +18,12 @@ module.exports = (app) => {
             ratings = getTSVData;
         });
         
-
-        let db = await mysql.connect();       
-        
-        let [moviesids] = await db.execute(`
-            SELECT movie_id
-            FROM movies
-        `)
-
-        db.end();
-
-        let singleRating = [];
-
-        moviesids.forEach(movie => {
-            let movieID = movie.movie_id;
-            // console.log(movieid);
-            
-            ratings.forEach(movie => {
-                let ratingID = movie.tconst;
-                // console.log(ratingID);
-                if(movieID == ratingID) {
-                    singleRating.push(movie.averageRating);               
-                }
-            });
-        });
         // console.log(singleRating);
 
         res.render('home', {
             "movies":movies,
             "recentmovies":recent_movies,
-            "rating" : singleRating
+            "ratings" : ratings
         });
 
     });
