@@ -18,6 +18,7 @@
 
             <!-- top navigation (filter) -->
             <nav class="filter-nav">
+                <%- include('partials/sortby.ejs') %>
                 <%- include('partials/top-nav.ejs') %> 
             </nav>
 
@@ -34,7 +35,8 @@
         <div class="content-wrapper">
         <%if(typeof recentmovies != 'undefined'){%>
             <div class="slider-container">
-                <div class="slider-size-regulator"><%recentmovies.forEach((recentmovie)=>{ %><div class="slider-item" style="background-image:url('/assets/images/<%=recentmovie.image_name%>')"></div><%}) } %></div>
+                <div class="slider-size-regulator"><%recentmovies.forEach((recentmovie)=>{ %><div class="slider-item" style="background-image:url('/assets/images/<%=recentmovie.image_name%>')">
+                <h4 class="featured-movie-name"><%=recentmovie.movie_title%></h4></div><%}) } %></div>
             </div>
 
             
