@@ -37,7 +37,7 @@ app.set('views', './server/views');
 // ROUTES
 /* indlæs alle de routes serveren skal håndtere */
 require('./server/routes/routes.js')(app);
-require('./server/routes/filescraper.js')(app);
+
 
 // PUBLIC MAPPEN
 /* Forbind til Public Mappen, skal stå efter ROUTES */
