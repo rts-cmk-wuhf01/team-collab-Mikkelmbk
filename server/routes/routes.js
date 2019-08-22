@@ -1,18 +1,53 @@
+
 const mysql = require('../config/mysql');
+const filescraper = require('../config/filescraper')
 
 module.exports = (app) => {
 
-
-
-
-
     app.get('/', async (req, res, next) => {
+
         let movies = await getAllMovies();
         let recent_movies = await getRecentlyAddedMovies();
 
+        // loads data from file:
+        let ratings;
+
+        await filescraper.loaddata().then((getTSVData)=>{
+            // logger til terminalen:
+            console.log(getTSVData);
+            ratings = getTSVData;
+        });
+        
+
+        let db = await mysql.connect();       
+        
+        let [moviesids] = await db.execute(`
+            SELECT movie_id
+            FROM movies
+        `)
+
+        db.end();
+
+        let singleRating = [];
+
+        moviesids.forEach(movie => {
+            let movieID = movie.movie_id;
+            // console.log(movieid);
+            
+            ratings.forEach(movie => {
+                let ratingID = movie.tconst;
+                // console.log(ratingID);
+                if(movieID == ratingID) {
+                    singleRating.push(movie.averageRating);               
+                }
+            });
+        });
+        // console.log(singleRating);
+
         res.render('home', {
             "movies":movies,
-            "recentmovies":recent_movies
+            "recentmovies":recent_movies,
+            "rating" : singleRating
         });
 
     });
