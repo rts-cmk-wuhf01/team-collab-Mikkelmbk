@@ -1,6 +1,7 @@
 
 const mysql = require('../config/mysql');
 const filescraper = require('../config/filescraper')
+// const filescrapertest = require('../config/filescrapertest');
 
 module.exports = (app) => {
 
@@ -11,19 +12,25 @@ module.exports = (app) => {
 
         // loads data from file:
         let ratings;
+        let years;
 
-        await filescraper.loaddata().then((getTSVData)=>{
+        await filescraper.loadrating().then((getTSVData)=>{
             // logger til terminalen:
-            console.log(getTSVData);
+            // console.log(getTSVData);
             ratings = getTSVData;
         });
-        
-        // console.log(singleRating);
+
+        await filescraper.loadyear().then((getYearTSVData)=>{
+            // logger til terminalen:
+            // console.log(getYearTSVData);
+            years = getYearTSVData;
+        });
 
         res.render('home', {
             "movies":movies,
             "recentmovies":recent_movies,
-            "ratings" : ratings
+            "ratings" : ratings,
+            "years" : years
         });
 
     });
