@@ -1,19 +1,19 @@
 
 
   .dropdown {
-	margin-left: 150px;
+	margin-left: 10%;
 	position: absolute;
 	left: 0%;
   }
 
   .dropdown-2 {
 	position: absolute;
-	left: 13.5%;
+	left: 20%;
   }
   
   .dropdown-3 {
 	position: absolute;
-	left: 34.9%;
+	left: 50%;
   }
 
   a {
@@ -98,7 +98,7 @@
 	font-weight: bold;
 	cursor: pointer;
 	position: absolute;
-	left: 43%;
+	left: 65%;
 	margin-top: 16px;
   }
 
@@ -135,5 +135,18 @@ a#submit { z-index: 1; }
 .searchbar {
     /* width: 30%; */
     /* padding-top: 1%; */
-    margin-left: 52.5%;
+    margin-left: 78%;
+}
+
+.removescroll ::-webkit-scrollbar{
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 0px;
+}
+
+.removescroll ::-webkit-scrollbar-thumb {
+	border-radius: 0px;
+
 }
