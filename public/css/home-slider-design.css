@@ -20,11 +20,26 @@
 
 .slider-item{
 	height:100%;
-	display:inline-block;
+	/* display:flex;
+	padding:20px;
+	justify-content:flex-end;
+	align-items:flex-end; */
+	position:relative;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size:cover;
+}
 
+.featured-movie-name{
+	position:absolute;
+	bottom:0;
+	right:25px;
+	background-color:rgb(59, 121, 214);
+	padding:4px 6px;
+	border-radius:3px;
+	color:white;
+	font-size:14px;
+	font-weight:400;
 }
 
 .slider-image{
