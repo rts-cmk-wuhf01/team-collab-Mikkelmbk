@@ -41,9 +41,10 @@ module.exports = (app) => {
         let ratings;
         let years;
 
+
         await filescraper.loadrating().then((getTSVData)=>{
             // logger til terminalen:
-            console.log(getTSVData);
+            // console.log(getTSVData);
             ratings = getTSVData;
         });
 
@@ -89,27 +90,30 @@ module.exports = (app) => {
         let getDate = new Date();
         let timeStamp = getDate.toISOString();
         
+        // console-log virker, hvis jeg indtaster i textarea
+        // console.log(message);
         // res.send(req.body);
 
           // håndter valideringen, alle fejl pushes til et array så de er samlet ET sted
         let returnMessageArray = [];
 
-        // if(name == undefined || name == '') {
-        //     returnMessageArray.push('Navn mangler');
-        // }
-        // if(email == undefined || email == '') {
-        //     returnMessageArray.push('Email mangler')
-        // }
-        // if (message == undefined || message == '') {
-        //     returnMessageArray.push('Beskedteksten mangler');
-        // }
+        if(name == undefined || name == '') {
+            returnMessageArray.push('Navn mangler');
+        }
+        if(email == undefined || email == '') {
+            returnMessageArray.push('Email mangler')
+        }
+        if (message == undefined || message == '') {
+            returnMessageArray.push('Beskedteksten mangler');
+        }
 
         // hvis der er 1 eller flere elementer i `return_message`, så mangler der noget
         if (returnMessageArray.length > 0) {
             res.render('contact-us', {
                 "returnMessageArray" : returnMessageArray.join(', '),
+                'reqbody': req.body
             });
-        // indsæt i databasen
+        // ellers: indsæt i databasen:
         } else {
 
             let database = await mysql.connect();
@@ -123,7 +127,6 @@ module.exports = (app) => {
                 , [name, email, subjectID, message, timeStamp]
             );
 
-            // NB jeg bruger ikke disse returnmessages til noget, endnu!
             // affected rows er større end nul, hvis en (eller flere) række(r) blev indsat
             if (sql[0].affectedRows > 0) {
                 returnMessageArray.push('Tak for din besked, vi vender tilbage hurtigst muligt');

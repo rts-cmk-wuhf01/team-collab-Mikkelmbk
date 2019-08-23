@@ -48,7 +48,7 @@
     margin-bottom: 1rem;
 }
 
-.contactform_input-wrapper input, .contactform_submit-button  {
+.contactform_input-wrapper input, .contactform_submit-button, .returnmessage-area__button  {
     height: 30px;
 }
 
@@ -56,14 +56,23 @@
     width: 60%;
 }
 
-.contactform_submit-message {
-    margin: auto;
+/* FEJLBESKEDER */
+
+.returnmessage-area {
+    grid-area: formular;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.returnmessage-area__message {
     text-align: center;
 }
 
 /* fonts */
 
-.contactform-headings-section, .contactform_submit-message {
+.contactform-headings-section, .returnmessage-area {
     color: white;
 }
 
@@ -71,11 +80,19 @@
     margin: 0 auto;
 }
 
-.contactform_submit-button {
+.contactform_submit-button, .returnmessage-area__button {
     width: 50%;
     color: white;
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 2px;
     background-color: cornflowerblue;
+}
+
+.returnmessage-area__refresh-form {
+    color: white;
+    font-size: 16px;
+    text-decoration-line: none;
+    font-weight: bold;
+    letter-spacing: 2px;
 }

@@ -3,7 +3,12 @@
 <main class="main_contact-us">
 
     <% if(returnMessageArray != 'undefined') { %> 
-        <h2 class="contactform_submit-message"><%=returnMessageArray%></h2>
+        <div class="returnmessage-area">
+            <h2 class="returnmessage-area__message"><%=returnMessageArray%></h2>
+            <button class="returnmessage-area__button">
+                <a href="/contact" class="returnmessage-area__refresh-form">Til formular</a>
+            </button>
+        </div>
     <%} else {%>
     <!-- contactform wrapper -->
     <div class="contactform-wrapper">
@@ -15,16 +20,26 @@
         <form method="post" class="contactform" onsubmit="return valider(this)">
             <div class="contactform_input-wrapper">
                 <label for="contactformname"></label>
-                <input type="text" name="contactformname" id="contactform_name" class="contactform_name" placeholder="Name" value="<% %>">
+                <input 
+                type="text" 
+                name="contactformname" 
+                id="contactform_name" 
+                class="contactform_name" 
+                placeholder="Name" 
+                value="<%= typeof reqbody != 'undefined' ? reqbody.contactformname : '' %>">
             </div>
     
 
             <div class="contactform_input-wrapper">
                 <label for="contactformemail"></label>
-                <input type="email" name="contactformemail" id="contactform_email" class="contactform_email" placeholder="Email" value="<% %>">
+                <input 
+                type="email" 
+                name="contactformemail" 
+                id="contactform_email" 
+                class="contactform_email" 
+                placeholder="Email" 
+                value="<%= typeof reqbody != 'undefined' ? reqbody.contactformemail : '' %>">
             </div>
-
-
 
             <div class="select-section">
                 <select name="contactformsubject" id="select-box" class="select-box" >
@@ -32,8 +47,8 @@
                     <% if(messagesubjects != 'undefined') { %>
                         <% messagesubjects.forEach(subject => { %>
                         <option
-                        value="<%=subject.messagecategory_id%>"
-                        ><%=subject.messagecategory_name%></option>
+                        value="<%=subject.messagecategory_id%>">                       <%=subject.messagecategory_name%>
+                        </option>
                         <%})%>
                     <%}%>
                 </select>
@@ -46,9 +61,7 @@
                 class="contactform__message" 
                 cols="30" 
                 rows="10" 
-                placeholder="Message">
-                
-                </textarea>
+                placeholder="Message"><%= typeof reqbody != 'undefined' ? reqbody.contactformmessage : ''%></textarea>
             </div>
             
             <button class="contactform_submit-button" type="submit">SEND</button>
