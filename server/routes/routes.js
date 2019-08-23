@@ -39,10 +39,12 @@ module.exports = (app) => {
         let movies = await getAllMovies();
 
         let ratings;
+        let years;
 
-        await filescraper.loaddata().then((getTSVData)=>{
+        // loads data from file:
+        await filescraper.loadrating().then((getTSVData)=>{
             // logger til terminalen:
-            console.log(getTSVData);
+            // console.log(getTSVData);
             ratings = getTSVData;
         });
 
