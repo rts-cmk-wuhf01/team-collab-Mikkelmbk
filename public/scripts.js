@@ -1,28 +1,30 @@
 
 
-// CLIENT SIDE VALIDERING
 
-// variabler hentes VED BUTTON SUBMIT EVENT.
+// Funtion & Variables //
 
-let contactformButtonSubmit;
-let contactform = document.forms.contactform;
-
-let name = contactform.contactformname;
-let email = contactform.contactformemail;
-let subjectID = contactform.contactformsubject;
-let message = contactform.contactformmessage;
-
-// håndter valideringen, alle fejl pushes til et array så de er samlet ET sted
-let returnMessageArray = [];
-
-if(name == undefined || name == '') {
-    returnMessageArray.push('Navn mangler');
+var besked = document.querySelector(".contactform_input-wrapper"); // Advarsel - Bruges til innerHTML
+function valider(f){ //"f" modtager formen (this)
+    
+// Name
+    if(f.contactformname.value == ""){ //Hvis den er tom ->
+    besked.innerHTML ="*Du mangler at skrive dit navn!"; //Advarsel
+    f.contactformname.focus(); //Aktive felt
 }
-if(email == undefined || email == '') {
-    returnMessageArray.push('Email mangler')
+    
+// Email 
+    var atpos = f.contactformemail.value.indexOf("@");
+    var dotpos = f.contactformemail.value.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || f.contactformemail.value.length <= dotpos+2){
+    besked.innerHTML="*Skriv en gyldig e-mail adresse!";
+    f.contactformemail.focus();
 }
-if (message == undefined || message == '') {
-    returnMessageArray.push('Beskedteksten mangler');
+    
+// Message
+    if(f.contactformmessage.value == ""){ //Hvis den er tom ->
+    besked.innerHTML ="*Skriv en besked!"; //Advarsel
+    f.contactformmessage.focus(); //Aktive felt
 }
+    
 
-let returnMessage = returnMessageArray.join(', ');
+}
