@@ -41,7 +41,7 @@ module.exports = (app) => {
         let ratings;
         let years;
 
-        // loads data from file:
+
         await filescraper.loadrating().then((getTSVData)=>{
             // logger til terminalen:
             // console.log(getTSVData);
