@@ -40,7 +40,7 @@ module.exports = (app) => {
 
         let ratings;
 
-        await filescraper.loaddata().then((getTSVData)=>{
+        await filescraper.loadrating().then((getTSVData)=>{
             // logger til terminalen:
             console.log(getTSVData);
             ratings = getTSVData;
