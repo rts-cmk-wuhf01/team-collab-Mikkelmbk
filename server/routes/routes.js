@@ -39,6 +39,7 @@ module.exports = (app) => {
         let movies = await getAllMovies();
 
         let ratings;
+        let years;
 
         await filescraper.loadrating().then((getTSVData)=>{
             // logger til terminalen:
