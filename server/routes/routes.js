@@ -86,15 +86,15 @@ module.exports = (app) => {
           // håndter valideringen, alle fejl pushes til et array så de er samlet ET sted
         let returnMessageArray = [];
 
-        if(name == undefined || name == '') {
-            returnMessageArray.push('Navn mangler');
-        }
-        if(email == undefined || email == '') {
-            returnMessageArray.push('Email mangler')
-        }
-        if (message == undefined || message == '') {
-            returnMessageArray.push('Beskedteksten mangler');
-        }
+        // if(name == undefined || name == '') {
+        //     returnMessageArray.push('Navn mangler');
+        // }
+        // if(email == undefined || email == '') {
+        //     returnMessageArray.push('Email mangler')
+        // }
+        // if (message == undefined || message == '') {
+        //     returnMessageArray.push('Beskedteksten mangler');
+        // }
 
         // hvis der er 1 eller flere elementer i `return_message`, så mangler der noget
         if (returnMessageArray.length > 0) {
