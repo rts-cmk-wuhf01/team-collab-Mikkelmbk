@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Vært: 127.0.0.1
--- Genereringstid: 21. 08 2019 kl. 13:55:27
+-- Genereringstid: 23. 08 2019 kl. 10:08:21
 -- Serverversion: 10.1.30-MariaDB
 -- PHP-version: 7.2.1
 
@@ -163,18 +163,18 @@ INSERT INTO `movies` (`movie_id`, `movie_title`, `movie_rating`, `movie_year`, `
 (16, 'IT', 'Tal', 1900, 'Beskrivelse'),
 (17, 'Lion King', 'Tal', 1900, 'Beskrivelse'),
 (18, 'Hellboy', 'Tal', 1900, 'Beskrivelse'),
-(19, 'Inglorious Bastards', 'Tal', 1900, 'Beskrivelse'),
+(19, 'Inglourious Bastards', 'Tal', 1900, 'Beskrivelse'),
 (20, 'Now and Then', 'Tal', 1900, 'Beskrivelse'),
 (21, 'The Hustle', 'Tal', 1900, 'Beskrivelse'),
 (22, 'Rocketman', 'Tal', 1900, 'Beskrivelse'),
-(23, 'Night Hunter Featured', 'Tal', 1900, 'Beskrivelse'),
-(24, 'Orange is the new black Featured', 'Tal', 1900, 'Beskrivelse'),
-(25, 'Brightburn Featured', 'Tal', 1900, 'Beskrivelse'),
-(26, 'Sacred Games Featured', 'Tal', 1900, 'Beskrivelse'),
-(27, 'Mindhunter Featured', 'Tal', 1900, 'Beskrivelse'),
-(28, 'Aquaman Featured', 'Tal', 1900, 'Beskrivelse'),
-(29, 'The Boys Featured', 'Tal', 1900, 'Beskrivelse'),
-(30, 'Avengers Endgame Featured', 'Tal', 1900, 'Beskrivelse');
+(23, 'Night Hunter', 'Tal', 1900, 'Beskrivelse'),
+(24, 'Orange is the new black', 'Tal', 1900, 'Beskrivelse'),
+(25, 'Brightburn', 'Tal', 1900, 'Beskrivelse'),
+(26, 'Sacred Games', 'Tal', 1900, 'Beskrivelse'),
+(27, 'Mindhunter', 'Tal', 1900, 'Beskrivelse'),
+(28, 'Aquaman', 'Tal', 1900, 'Beskrivelse'),
+(29, 'The Boys', 'Tal', 1900, 'Beskrivelse'),
+(30, 'Avengers Endgame', 'Tal', 1900, 'Beskrivelse');
 
 -- --------------------------------------------------------
 
