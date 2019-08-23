@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	slideImagesByInterval();
 	
-	sliderContainerElement.addEventListener('mouseenter',()=>{
+	sliderContainerElement.addEventListener('mouseover',()=>{
 		clearInterval(sliderInterval);
 	})
 

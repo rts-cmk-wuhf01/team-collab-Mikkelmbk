@@ -2,13 +2,20 @@
 			<main class="main">
 				<article class="main__gallery">
 				<% if(typeof movies != 'undefined'){
-				movies.forEach((image, index)=>{ %>
+				movies.forEach((image)=>{ %>
  
 				<div class="imgContainer">
 				<div class="movie-overlay">
-				<span class="movie-name">Name</span>
+				<span class="movie-name"><%=image.movie_title%></span>
 
 				<div class="movie-rating-year-container">
+				<span class="movie-rating"><i class="fas fa-star"><%ratings.forEach((singleRating,index)=>{
+					if(index+1 == image.movie_id){ %>
+
+				<%=singleRating.averageRating%>
+
+				<%}  })%></i></span>
+				<span class="movie-year">2018</span>
 				
 				</div>
 				

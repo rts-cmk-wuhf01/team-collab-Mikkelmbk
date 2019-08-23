@@ -1,18 +1,36 @@
+
 const mysql = require('../config/mysql');
+const filescraper = require('../config/filescraper')
+// const filescrapertest = require('../config/filescrapertest');
 
 module.exports = (app) => {
 
-
-
-
-
     app.get('/', async (req, res, next) => {
+
         let movies = await getAllMovies();
         let recent_movies = await getRecentlyAddedMovies();
 
+        // loads data from file:
+        let ratings;
+        let years;
+
+        await filescraper.loadrating().then((getTSVData)=>{
+            // logger til terminalen:
+            // console.log(getTSVData);
+            ratings = getTSVData;
+        });
+
+        await filescraper.loadyear().then((getYearTSVData)=>{
+            // logger til terminalen:
+            // console.log(getYearTSVData);
+            years = getYearTSVData;
+        });
+
         res.render('home', {
             "movies":movies,
-            "recentmovies":recent_movies
+            "recentmovies":recent_movies,
+            "ratings" : ratings,
+            "years" : years
         });
 
     });
@@ -20,9 +38,17 @@ module.exports = (app) => {
     app.get('/movies', async (req, res, next) => {
         let movies = await getAllMovies();
 
+        let ratings;
+
+        await filescraper.loaddata().then((getTSVData)=>{
+            // logger til terminalen:
+            console.log(getTSVData);
+            ratings = getTSVData;
+        });
+
         res.render('movies', {
             "movies":movies,
-
+            "ratings" : ratings
 
         });
 

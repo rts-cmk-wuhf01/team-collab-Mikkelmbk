@@ -3,6 +3,7 @@
 
 // Funtion & Variables //
 
+
 var besked = document.querySelector(".contactform_input-wrapper"); // Advarsel - Bruges til innerHTML
 function valider(f){ //"f" modtager formen (this)
     
@@ -28,3 +29,4 @@ function valider(f){ //"f" modtager formen (this)
     
 
 }
+
