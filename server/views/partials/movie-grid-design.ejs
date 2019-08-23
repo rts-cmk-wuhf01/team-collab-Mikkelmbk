@@ -15,7 +15,12 @@
 				<%=singleRating.averageRating%>
 
 				<%}  })%></i></span>
-				<span class="movie-year">2018</span>
+				<span class="movie-year">
+					<%years.forEach((year,index)=>{
+						if(index+1 == image.movie_id){ %>
+					<%=year.startYear%>
+					<%}  })%>
+				</span>
 				
 				</div>
 				

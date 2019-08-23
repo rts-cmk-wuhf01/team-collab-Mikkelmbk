@@ -46,10 +46,17 @@ module.exports = (app) => {
             ratings = getTSVData;
         });
 
+        await filescraper.loadyear().then((getYearTSVData)=>{
+            // logger til terminalen:
+            // console.log(getYearTSVData);
+            years = getYearTSVData;
+        });
+
+
         res.render('movies', {
             "movies":movies,
-            "ratings" : ratings
-
+            "ratings" : ratings,
+            "years" : years
         });
 
     });
